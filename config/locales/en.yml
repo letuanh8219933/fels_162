@@ -20,4 +20,31 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  footer:
+    about: "About"
+    contact: "Contact"
+    new: "News"
+
+  header:
+    home: "Home"
+    help: "Help"
+    login: "Log in"
+    headertitle: "Fr-E-leaning system"
+
+  body:
+    hello: "Welcome to the Framgia E-leaning System"
+    signup: "Sign up now!"
+
+  formhelp:
+    help: "Help"
+
+  formcontact:
+    contact: "Contact"
+
+  formabout:
+    about: "About"
+
+  title:
+    help: "Help"
+
+  basetitle: "E-learning System"
