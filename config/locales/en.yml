@@ -46,5 +46,23 @@ en:
 
   title:
     help: "Help"
+    signup: "Sign up"
 
   basetitle: "E-learning System"
+
+  formsignup:
+    confirm: "Confirmation"
+    createacc: "Create my account"
+
+  message:
+    success:
+      create_user: "Welcome to elearning app"
+    error: "error"
+    error_norecord: "Record not found!"
+
+
+  error_signup:
+    content: "The form contains "
+
+  home:
+    image_alt: "Rails logo"
