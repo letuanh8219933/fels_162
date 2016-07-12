@@ -2,6 +2,5 @@
   <h1><%= t "body.hello" %></h1>
   <%= link_to t("body.signup"), signup_path, class: "btn btn-lg btn-primary" %>
 </div>
-
-<%= link_to image_tag("framgialogo.png", alt: "Rails logo"),
+<%= link_to image_tag("framgialogo.png", alt: t("home.image_alt")),
   "http://recruit.framgia.vn" %>
