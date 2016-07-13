@@ -8,7 +8,14 @@ class UsersController < ApplicationController
       .paginate page: params[:page],per_page: Settings.per_page
   end
 
+  def index
+  end
+
   def show
+    unless @user
+      flash[:danger] = t "controller.user_controller.error_norecord"
+      redirect_to signup_path
+    end
   end
 
   def new
@@ -50,5 +57,16 @@ class UsersController < ApplicationController
       flash[:danger] = t "controller.user_controller.error_norecord"
       redirect_to signup_path
     end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = t "controller.user_controller.danger"
+      redirect_to login_url
+    end
+  end
+
+  def correct_user
+    redirect_to root_url unless current_user? @user
   end
 end
