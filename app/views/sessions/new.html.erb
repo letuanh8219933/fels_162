@@ -1,5 +1,5 @@
-<% provide :title, t("header.login") %>
-<h1><%= t "header.login" %></h1>
+<% provide :title, t("view.header.login") %>
+<h1><%= t "view.header.login" %></h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for :session, url: login_path do |f| %>
@@ -11,11 +11,14 @@
       <%= f.password_field :password, class: "form-control" %>
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
-        <span><%= t "message.info" %></span>
+        <span><%= t "view.sessions.info" %></span>
       <% end %>
-      <%= f.submit t("header.login"), class: "btn btn-primary" %>
+      <%= f.submit t("view.header.login"), class: "btn btn-primary" %>
     <% end %>
 
-    <p><%= t "body.new_user" %><%= link_to t("body.signup"), signup_path %></p>
+    <p>
+      <%= t "view.sessions.new_user" %>
+      <%= link_to t("view.statig_pages.signup"), signup_path %>
+    </p>
   </div>
 </div>

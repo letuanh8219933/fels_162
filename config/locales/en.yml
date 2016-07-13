@@ -20,58 +20,58 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  footer:
-    about: "About"
-    contact: "Contact"
-    new: "News"
+  message:
+    success:
+    error: "error"
+    info: "Remember me on this computer"
 
-  header:
-    home: "Home"
-    help: "Help"
-    login: "Log in"
-    user: "User"
-    headertitle: "Fr-E-leaning system"
-    account: "Account"
-    link_to: "#"
-    ul:
-      profile: "Profile"
-      setting: "Settings"
-      log_out: "Log out"
-
-  body:
-    hello: "Welcome to the Framgia E-leaning System"
-    signup: "Sign up now!"
-    new_user: "New user? "
-
-  formhelp:
-    help: "Help"
-
-  formcontact:
-    contact: "Contact"
-
-  formabout:
-    about: "About"
-
-  title:
-    help: "Help"
-    signup: "Sign up"
+  h1:
+    update_profile: "Update your profile"
 
   basetitle: "E-learning System"
 
-  formsignup:
-    confirm: "Confirmation"
-    createacc: "Create my account"
-
-  message:
-    success:
+  controller:
+    sessions_controller:
+      error_login: "Invalid email/password combination"
+    user_controller:
+      error_norecord: "Record not found!"
       create_user: "Welcome to elearning app"
-    error: "error"
-    error_norecord: "Record not found!"
-    error_login: "Invalid email/password combination"
-    info: "Remember me on this computer"
+      update_profile: "Profile updated"
+      danger: "Please log in."
 
-  error_signup:
-    content: "The form contains "
+  view:
+    footer:
+      new: "News"
+      about: "About"
+      contact: "Contact"
+    header:
+      account: "Account"
+      headertitle: "Fr-E-leaning system"
+      home: "Home"
+      help: "Help"
+      login: "Log in"
+      user: "User"
+      ul:
+        profile: "Profile"
+        set: "Settings"
+        log_out: "Log out"
+    sessions:
+      info: "Remember me on this computer"
+      new_user: "New user? "
+      content: "The form contains "
+    static_pages:
+      about: "About"
+      contact: "Contact"
+      help: "Help"
+      hello: "Welcome to the Framgia E-leaning System"
+      image_alt: "Rails logo"
+      signup: "Sign up now!"
+    user:
+      confirm: "Confirmation"
+      submit: "Save changes"
+      change: "change"
+      createacc: "Create my account"
+      edit : "Edit user"
 
-  home:
-    image_alt: "Rails logo"
+
+

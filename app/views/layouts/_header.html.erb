@@ -1,27 +1,29 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to t("header.headertitle"), root_path, id: "logo" %>
+    <%= link_to t("view.header.headertitle"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("header.home") , root_path %></li>
-        <li><%= link_to t("header.help") , help_path %></li>
+        <li><%= link_to t("view.header.home"), root_path %></li>
+        <li><%= link_to t("view.header.help"), help_path %></li>
         <% if logged_in? %>
-          <li><%= link_to t("header.user"), "#" %></li>
+          <li><%= link_to t("view.header.user"), users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= t "header.account"%> <b class="caret"></b>
+              <%= t "view.header.account" %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to t("header.ul.profile"), current_user %></li>
-              <li><%= link_to t("header.ul.setting"), "#" %></li>
+              <li><%= link_to t("view.header.ul.profile"), current_user %></li>
+              <li>
+                <%= link_to t("view.header.ul.set"), edit_user_path(current_user) %>
+              </li>
               <li class="divider"></li>
               <li>
-                <%= link_to t("header.ul.log_out"), logout_path, method: "delete" %>
+                <%= link_to t("view.header.ul.log_out"), logout_path, method: "delete" %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to t("header.login"), login_path %></li>
+          <li><%= link_to t("view.header.login"), login_path %></li>
         <% end %>
       </ul>
     </nav>
