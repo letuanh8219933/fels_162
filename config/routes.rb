@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
-  resources :users, only: [:show, :new, :create]
+  resources :users, except: [:destroy, :index]
 end
