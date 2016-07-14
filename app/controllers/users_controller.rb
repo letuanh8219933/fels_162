@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :index, :edit, :update]
+  before_action :logged_in_user, only: [:show, :index, :edit, :update, :following, :followers]
   before_action :load_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
 
   def index
     @users = User.order(created_at: :desc)
       .paginate page: params[:page],per_page: Settings.per_page
-  end
-
-  def index
   end
 
   def show
@@ -45,6 +42,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render "show_follow"
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render "show_follow"
+  end
+
   private
   def user_params
     params.require(:user).permit :name, :email, :password,
@@ -57,16 +68,5 @@ class UsersController < ApplicationController
       flash[:danger] = t "controller.user_controller.error_norecord"
       redirect_to signup_path
     end
-
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = t "controller.user_controller.danger"
-      redirect_to login_url
-    end
-  end
-
-  def correct_user
-    redirect_to root_url unless current_user? @user
   end
 end

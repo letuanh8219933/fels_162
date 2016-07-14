@@ -8,5 +8,11 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
-  resources :users, except: [:destroy, :index]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :users, except: [:destroy]
+  resources :relationships, only: [:create, :destroy]
 end

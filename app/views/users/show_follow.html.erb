@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-8">
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate @users %>
+    <% else %>
+      <%= t "view.user.follow.nocontent" %>
+    <% end %>
+  </div>
+</div>
