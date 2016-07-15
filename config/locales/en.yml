@@ -72,6 +72,11 @@ en:
       change: "change"
       createacc: "Create my account"
       edit : "Edit user"
-
-
-
+      index: "All users"
+      follow:
+        nocontent: "No user was found!"
+  relationship:
+    unfollow: "Unfollow"
+    follow: "Follow"
+    followers: "followers"
+    following: "following"
