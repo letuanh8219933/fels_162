@@ -1,0 +1,17 @@
+<% @user ||= current_user %>
+  <div class="stats">
+    <%= link_to relationships_path(user: @user,
+      relationship: t("relationship.following").downcase) do %>
+      <strong id="following" class="stat">
+        <%= @user.following.count %>
+      </strong>
+    <%= t "views.following" %>
+    <% end %>
+    <%= link_to relationships_path(user: @user,
+      relationship: t("relationship.followers").downcase) do %>
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+    <%= t "views.followers" %>
+  <% end %>
+ </div>
