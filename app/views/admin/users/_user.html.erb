@@ -1,0 +1,6 @@
+<% unless user.is_admin? %>
+  <%= link_to user.name, user %> |
+  <%= link_to t("view.delete"), admin_user_path(user), method: :delete,
+    data: {confirm: t("admin.confirm")} %>
+  <br>
+<% end %>

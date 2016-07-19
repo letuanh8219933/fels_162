@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t ".framgia_e_learning" %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": true %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+   <div class="wrapper">
+      <div class="container-fluid" style="margin-bottom: 100px; min-height: 300px">
+        <div class="row">
+          <div class="col-md-3">
+            <%= render "admin/partials/navbar" %>
+          </div>
+          <div>
+            <h2 class="text-center"><%= yield :page_title %></h2>
+            <% flash.each do |message_type, message| %>
+              <div class="alert alert-<%= message_type %>"><%= message %></div>
+            <% end %>
+            <hr />
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+</html>
