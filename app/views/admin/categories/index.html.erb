@@ -10,8 +10,10 @@
       <tr>
         <td> <%= link_to category.name, admin_category_path(category) %></td>
         <td>
-          <%= link_to t("views.categories.delete"), admin_category_path(category),
-            method: :delete, data: {confirm: t("admin.confirm")} %>
+          <% unless user.is_admin? %>
+            <%= link_to t("views.categories.delete"), admin_category_path(category),
+              method: :delete, data: {confirm: t("admin.confirm")} %>
+          <% end %>
         </td>
       </tr>
     </table>
