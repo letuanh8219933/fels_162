@@ -1,7 +1,9 @@
-<%= provide :title,"list category" %>
+<%= provide :title, t("admin.title_categories") %>
 <center>
-  <h1><%= "list category" %></h1>
+  <h1><%= t "admin.title_categories" %></h1>
 </center>
+<%= link_to t("admin.add_category"), new_admin_category_path,
+  class: "btn btn-primary" %>
 <%= will_paginate %>
 <ul class="list-group">
   <% @categories.each do |category| %>
@@ -10,8 +12,10 @@
       <tr>
         <td> <%= link_to category.name, admin_category_path(category) %></td>
         <td>
-          <%= link_to t("views.categories.delete"), admin_category_path(category),
-            method: :delete, data: {confirm: t("admin.confirm")} %>
+            <%= link_to t("views.categories.delete"), admin_category_path(category),
+              method: :delete, data: {confirm: t("admin.confirm")} %> |
+            <%= link_to t("views.categories.edit"),
+              edit_admin_category_path(category) %>
         </td>
       </tr>
     </table>
