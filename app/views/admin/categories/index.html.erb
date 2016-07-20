@@ -1,0 +1,21 @@
+<%= provide :title,"list category" %>
+<center>
+  <h1><%= "list category" %></h1>
+</center>
+<%= will_paginate %>
+<ul class="list-group">
+  <% @categories.each do |category| %>
+    <li class="list-group-item">
+    <table>
+      <tr>
+        <td> <%= link_to category.name, admin_category_path(category) %></td>
+        <td>
+          <%= link_to t("views.categories.delete"), admin_category_path(category),
+            method: :delete, data: {confirm: t("admin.confirm")} %>
+        </td>
+      </tr>
+    </table>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>
