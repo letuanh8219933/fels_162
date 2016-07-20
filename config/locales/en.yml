@@ -97,4 +97,8 @@ en:
     title_categories: "List categories"
     delete_category: "Deleted"
     delete_failed_category: "Failed"
+    create_category: "Success"
+    add_category: "Add category"
+    edit_category: "Edit category"
+    update_category: "Updated"
   delete: "Delete"

@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @category] do |f| %>
+      <%= render "shared/error_messages", object: @category %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.submit t("admin.add_category"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
