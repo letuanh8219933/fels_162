@@ -6,8 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Users
-User.create
-  name:  "Admin",
+User.create name: "Admin",
   email: "admin@gmail.com",
   password: "123456",
   password_confirmation: "123456",
@@ -17,11 +16,15 @@ User.create
   name  = Faker::Name.name
   email = "FakeUser#{n+1}@railstutorial.org"
   password = "password"
-  User.create
-    name:  name,
+  User.create name: name,
     email: email,
     password: password,
     password_confirmation: password,
     is_admin: 0,
     activated: true
+end
+
+category = Category.order(:name).first
+8.times do |n|
+  category = Category.create(name: "Category #{n+1}")
 end

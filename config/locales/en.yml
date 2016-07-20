@@ -94,4 +94,7 @@ en:
     delete_user: "Deleted"
     delete_failed: "Failed"
     confirm: "You sure?"
+    title_categories: "List categories"
+    delete_category: "Deleted"
+    delete_failed_category: "Failed"
   delete: "Delete"
