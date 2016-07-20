@@ -101,4 +101,6 @@ en:
     add_category: "Add category"
     edit_category: "Edit category"
     update_category: "Updated"
+    search_word: "Search"
+    words_list: "Word list"
   delete: "Delete"

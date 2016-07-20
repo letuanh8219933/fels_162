@@ -1,5 +1,11 @@
 class Word < ActiveRecord::Base
   belongs_to :category
-  has_many :word_answer
-  has_many :lesson_word
+  has_many :word_answers
+  has_many :lesson_words
+  scope :by_category, ->(category_id) do
+    where category_id: category_id if category_id.present?
+  end
+
+  validates :content, presence: true, uniqueness: true,
+    length: {maximum: 255}
 end

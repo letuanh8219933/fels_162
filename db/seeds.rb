@@ -27,4 +27,8 @@ end
 category = Category.order(:name).first
 8.times do |n|
   category = Category.create(name: "Category #{n+1}")
+  20.times do |m|
+    category.words.create(
+      content: "Word #{n+1} #{m+1}")
+  end
 end
