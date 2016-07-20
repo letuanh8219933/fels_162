@@ -24,6 +24,7 @@ en:
     success:
     error: "error"
     info: "Remember me on this computer"
+    loggin_success: "login with administrator privileges"
 
   h1:
     update_profile: "Update your profile"
@@ -33,6 +34,7 @@ en:
   controller:
     sessions_controller:
       error_login: "Invalid email/password combination"
+      success: "Wellcome!!"
     user_controller:
       error_norecord: "Record not found!"
       create_user: "Welcome to elearning app"
@@ -40,6 +42,13 @@ en:
       danger: "Please log in."
 
   view:
+    admin: "Admin"
+    login_success: "Success"
+    layout:
+      home: "Home"
+      users: "Users"
+      categories: "Categories"
+      words: "Words_list"
     footer:
       new: "News"
       about: "About"
@@ -80,3 +89,9 @@ en:
     follow: "Follow"
     followers: "followers"
     following: "following"
+  admin:
+    title_users: "All user"
+    delete_user: "Deleted"
+    delete_failed: "Failed"
+    confirm: "You sure?"
+  delete: "Delete"

@@ -7,14 +7,15 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
       log_in user
-      if params[:session][:remember_me] == Settings.remember
-        remember user
+      @current_user = user
+      flash[:success] = t "controller.session_controller.success"
+      if user.is_admin?
+        redirect_to admin_root_url
       else
-        forget user
+        redirect_to root_url
       end
-      redirect_back_or user
     else
-      flash[:danger] = t "controller.sessions_controller.error_login"
+      flash[:danger] = t "controller.session_controller.error_login"
       render :new
     end
   end

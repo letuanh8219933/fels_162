@@ -1,0 +1,25 @@
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t("view.admin"), admin_root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t("view.layout.users"), admin_users_path %></li>
+        <li>
+          <%= link_to t("view.layout.categories"), "#" %>
+        </li>
+        <li><%= link_to t("view.layout.words"), "#" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= current_user.name %> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="divider"></li>
+            <li>
+              <%= link_to t("views.layouts.logout"), logout_path, method: :delete  %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

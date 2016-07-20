@@ -1,0 +1,11 @@
+<% provide :title, t("admin.title_users") %>
+<center>
+  <h1><%= t "admin.title_users" %></h1>
+  <div>
+    <ul class="list-group">
+      <%= render partial: "user" , collection: @users  %>
+    </ul>
+    <%= will_paginate @users %>
+  </div>
+</center>
+
