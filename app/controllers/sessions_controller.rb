@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       @current_user = user
-      flash[:success] = t "controller.session_controller.success"
+      flash[:success] = t "controller.sessions_controller.success"
       if user.is_admin?
         redirect_to admin_root_url
       else
         redirect_to root_url
       end
     else
-      flash[:danger] = t "controller.session_controller.error_login"
+      flash[:danger] = t "controller.sessions_controller.error_login"
       render :new
     end
   end
