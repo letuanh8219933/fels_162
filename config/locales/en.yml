@@ -90,6 +90,8 @@ en:
     followers: "followers"
     following: "following"
   admin:
+    success: "Success"
+    failed: "Failed"
     title_users: "All user"
     delete_user: "Deleted"
     delete_failed: "Failed"
@@ -103,4 +105,8 @@ en:
     update_category: "Updated"
     search_word: "Search"
     words_list: "Word list"
+    add_word: "Add word"
+    remove_answer: "Remove"
+    add_answers: "Add_answers"
+    word_answer: "Answer"
   delete: "Delete"

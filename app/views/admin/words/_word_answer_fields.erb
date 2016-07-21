@@ -1,0 +1,8 @@
+<%= f.fields_for :words do |builder| %>
+  <fieldset>
+    <%= f.text_field :content %>
+    <%= f.check_box :is_correct %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to t("admin.remove_answer"), "#", class: "remove_word_answers" %>
+  </fieldset>
+<% end %>

@@ -4,6 +4,7 @@
     <section class="user_info">
       <h1>
         <%= @category.name %>
+        <%= link_to t("admin.add_word"), new_admin_category_word_path(@category) %>
       </h1>
     </section>
   </aside>
