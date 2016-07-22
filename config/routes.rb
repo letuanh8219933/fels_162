@@ -9,6 +9,17 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
   resources :users, except: [:destroy]
+
+  resources :categories
+  resources :categories do
+    resources :lessons, except: [:index, :destroy, :edit]
+  end
+
+  resources :lessons, except: [:edit, :destroy]
+  # resources :relationships, only: [:create, :destroy]
+  resources :categories
+  resources :words, only: :index
+
   namespace :admin do
     root "users#index"
     resources :users, only: [:index, :destroy]

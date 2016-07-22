@@ -1,0 +1,12 @@
+<tr>
+  <td><%= category.name %></td>
+  <td><%= category.description %></td>
+  <td><%= category.lessons.count %></td>
+  <td><%= category.words.count %></td>
+  <td>
+    <%= link_to category_path(category), class: "btn btn-primary" do %>
+      <%= t("category.detail") %>
+      <i class="fa fa-share" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

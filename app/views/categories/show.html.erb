@@ -1,0 +1,23 @@
+<%= content_for :title do %>
+  <%= t "page.front-end.categories.detail.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.categories.detail.title" %>
+<% end %>
+
+<% if @lessons.size > 0 %>
+  <h5><%= t "page.front-end.categories.detail.note" %></h5>
+  <% @lessons.each do |lesson| %>
+    <%= link_to lesson.id, [@category,lesson],
+      class: "btn btn-#{lesson.is_completed ? "success" : "danger"}  lesson_learned" %>
+  <% end %>
+<% else %>
+  <p class="text-info"><%= t "page.front-end.categories.no_content" %></p>
+<% end %>
+<br/><hr/>
+<h4><%= t "category.lesson.start" %></h4>
+<%= form_for [@category, @lesson] do |f| %>
+  <%= f.submit "Create category", class: "btn btn-primary" %>
+<% end %>
+

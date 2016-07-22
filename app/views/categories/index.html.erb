@@ -1,0 +1,22 @@
+<%= content_for :title do %>
+  <%= t "page.front-end.categories.list" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.categories.list" %>
+<% end %>
+
+<table class = "table table-striped" id="table_category_users">
+  <thead>
+    <tr class="info">
+      <th><%= t "category.name" %></th>
+      <th><%= t "category.desc" %></th>
+      <th><%= t "category.number_of_lesson" %></th>
+      <th><%= t "category.number_of_words" %></th>
+      <th><%= t "category.show" %></th>
+    </tr>
+  </thead>
+    <%= render @categories %>
+  </tbody>
+</table>
+<%= will_paginate %>

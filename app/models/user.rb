@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :activity
-  has_many :lesson
-  has_many :relationship
+  has_many :activities
+  has_many :lessons
+  has_many :relationships
 
   attr_accessor :remember_token
   before_save ->{self.email = email.downcase}
