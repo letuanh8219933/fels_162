@@ -60,6 +60,7 @@ en:
       help: "Help"
       login: "Log in"
       user: "User"
+      categories: "Categories"
       ul:
         profile: "Profile"
         set: "Settings"
@@ -84,6 +85,9 @@ en:
       index: "All users"
       follow:
         nocontent: "No user was found!"
+      add_lesson: "Create lesson"
+      list_category: "List categories"
+      add_lesson: "Add lesson"
   relationship:
     unfollow: "Unfollow"
     follow: "Follow"
