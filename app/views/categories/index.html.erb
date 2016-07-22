@@ -1,0 +1,6 @@
+<%= provide :title, t("controllers.categories.list_category") %>
+<h1><%= t "controllers.categories.list_category" %></h1>
+<ul class="categories">
+  <%= render partial: "category" , collection: @categories  %>
+</ul>
+<%= will_paginate %>
