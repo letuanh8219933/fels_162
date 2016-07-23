@@ -1,0 +1,36 @@
+<% provide :title, t("views.lesson.lesson_name") %>
+  <h1>
+    <%= @lesson.category.name %>
+  </h1>
+  <div class="row">
+    <aside class="center">
+      <section>
+        <h2>
+          <%= t "views.lesson.lesson_name" %>
+          <%= @lesson.id %>
+        </h2>
+      </section>
+    </aside>
+  </div>
+  <div class="row">
+    <section>
+      <%= form_for @lesson do |f| %>
+        <%= f.hidden_field :is_completed, value: true %>
+        <%= f.fields_for :lesson_words do |builder| %>
+          <div class="col-md-12 lesson_form">
+            <strong><%= builder.object.word.content %></strong>
+            <% builder.object.word.word_answers.each do |word_answer| %>
+              <%= builder.radio_button :word_answer_id, word_answer.id %>
+              <%= word_answer.content %>
+              <%= builder.hidden_field :word_id %>
+            <% end %>
+          </div>
+        <% end %>
+        <%= f.submit t("views.lesson.save"), class: "btn btn-primary",
+          data: {confirm: t("views.lessons.show.submit")} %>
+      <% end %>
+      <div class="clearfix"></div>
+      <div><%= link_to t(".back"), categories_path,
+        class: "btn btn-default" %></div>
+    </section>
+  </div

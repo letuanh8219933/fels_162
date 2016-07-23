@@ -38,6 +38,5 @@ class Admin::WordsController < ApplicationController
   def word_params
     params.require(:word).permit :content,
       word_answers_attributes: [:id, :content, :is_correct, :_destroy]
-      byebug
   end
 end

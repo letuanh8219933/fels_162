@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :activity
-  has_many :lesson
+  has_many :lessons
   has_many :relationship
 
   attr_accessor :remember_token
