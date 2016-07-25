@@ -1,4 +1,4 @@
-<% provide :title, t("views.lesson.lesson_name") %>
+  <% provide :title, t("views.lesson.lesson_name") %>
   <h1>
     <%= @lesson.category.name %>
   </h1>
@@ -14,23 +14,56 @@
   </div>
   <div class="row">
     <section>
-      <%= form_for @lesson do |f| %>
-        <%= f.hidden_field :is_completed, value: true %>
-        <%= f.fields_for :lesson_words do |builder| %>
-          <div class="col-md-12 lesson_form">
-            <strong><%= builder.object.word.content %></strong>
-            <% builder.object.word.word_answers.each do |word_answer| %>
-              <%= builder.radio_button :word_answer_id, word_answer.id %>
-              <%= word_answer.content %>
-              <%= builder.hidden_field :word_id %>
+      <% if @lesson.is_learned? %>
+        <div class="col-md-6 col-md-offset-3">
+          <strong id="score">
+            <%= t ".score:" %>
+            <%= @lesson.score %>
+          </strong>
+          <%= form_for @lesson do |f| %>
+            <%= f.hidden_field :is_learned, value: true %>
+            <%= f.fields_for :lesson_words do |builder| %>
+              <div class="col-md-12 lesson_form">
+                <strong><%= builder.object.word.content %></strong>
+                <div>
+                  <% builder.object.word.word_answers.each do |word_answer| %>
+                    <%= builder.radio_button :word_answer_id, word_answer.id, disabled: true %>
+                    <%= word_answer.content %>
+                    <%= builder.hidden_field :word_id %>
+                  <% end %>
+                  <% if builder.object.word_answer &&
+                    builder.object.word_answer.is_correct? %>
+                    <span id="word_correct"><% t "message.correct" %></span>
+                  <% else %>
+                    <span id="wrong_answer">
+                      <%= t "views.lessons.show.wrong_answer" %>
+                      <strong><%= builder.object.word.answer.content %></strong>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
-          </div>
+          <% end %>
+        </div>
+      <% else %>
+        <%= form_for @lesson do |f| %>
+          <%= f.hidden_field :is_learned, value: true %>
+          <%= f.fields_for :lesson_words do |builder| %>
+            <div class="col-md-12 lesson_form">
+              <strong><%= builder.object.word.content %></strong>
+              <% builder.object.word.word_answers.each do |word_answer| %>
+                <%= builder.radio_button :word_answer_id, word_answer.id %>
+                <%= word_answer.content %>
+                <%= builder.hidden_field :word_id %>
+              <% end %>
+            </div>
+          <% end %>
+          <%= f.submit t("views.lesson.save"), class: "btn btn-primary",
+            data: {confirm: t("views.lessons.show.submit")} %>
         <% end %>
-        <%= f.submit t("views.lesson.save"), class: "btn btn-primary",
-          data: {confirm: t("views.lessons.show.submit")} %>
       <% end %>
       <div class="clearfix"></div>
-      <div><%= link_to t(".back"), categories_path,
-        class: "btn btn-default" %></div>
+      <div><%= link_to t(".back"), categories_path, class: "btn btn-default" %>
+      </div>
     </section>
   </div

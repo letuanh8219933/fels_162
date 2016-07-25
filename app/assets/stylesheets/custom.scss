@@ -290,4 +290,30 @@ div#bg {
   top:0;left:0;width:100%;
   height:100%;
   z-index:-1;
-}  
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+}
+
+strong#score {
+  font-size:30px;
+  color: red;
+}
+
+span#word_correct {
+  color:green;
+}
+
+span#wrong_answer {
+  color:red;
+}
