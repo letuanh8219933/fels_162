@@ -25,6 +25,7 @@ en:
     error: "error"
     info: "Remember me on this computer"
     loggin_success: "login with administrator privileges"
+    create_lesson: "start lesson"
 
   h1:
     update_profile: "Update your profile"

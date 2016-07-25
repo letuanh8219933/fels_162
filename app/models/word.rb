@@ -5,6 +5,7 @@ class Word < ActiveRecord::Base
   scope :by_category, ->(category_id) do
     where category_id: category_id if category_id.present?
   end
+  scope :random, -> {order "RANDOM()"}
 
   validates :content, presence: true, uniqueness: true,
     length: {maximum: 255}
