@@ -26,6 +26,7 @@ en:
     info: "Remember me on this computer"
     loggin_success: "login with administrator privileges"
     create_lesson: "start lesson"
+    correct: "Correct!"
 
   h1:
     update_profile: "Update your profile"
@@ -84,6 +85,7 @@ en:
       createacc: "Create my account"
       edit : "Edit user"
       index: "All users"
+      no_word_error: "Category has no word to start lesson"
       follow:
         nocontent: "No user was found!"
       add_lesson: "Create lesson"
