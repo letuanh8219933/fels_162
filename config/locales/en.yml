@@ -44,6 +44,11 @@ en:
       danger: "Please log in."
 
   view:
+    word_lists:
+      search: Search
+      learned: "Learned"
+      not_learned: "Not Learned"
+      all_word: "All Word"
     admin: "Admin"
     login_success: "Success"
     layout:
