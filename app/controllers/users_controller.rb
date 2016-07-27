@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.activities.order(created_at: :desc)
+      .paginate page: params[:page], per_page: Settings.per_page_activity
     @followers = current_user.active_relationships.build
     @following = current_user.active_relationships.find_by(followed_id: @user.id)
   end
