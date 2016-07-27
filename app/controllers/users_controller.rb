@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :index, :edit, :update]
+  before_action :logged_in_user, except: [:new, :create]
   before_action :load_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
 
@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @followers = current_user.active_relationships.build
+    @following = current_user.active_relationships.find_by(followed_id: @user.id)
   end
 
   def new

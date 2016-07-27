@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  follow_user:
+    following: "Following"
+    followers: "Followers"
   message:
     success:
     error: "error"
@@ -96,6 +99,7 @@ en:
       add_lesson: "Create lesson"
       list_category: "List categories"
       add_lesson: "Add lesson"
+      profile: "View my profile"
   relationship:
     unfollow: "Unfollow"
     follow: "Follow"
