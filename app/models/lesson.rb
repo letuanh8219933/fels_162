@@ -9,6 +9,8 @@ class Lesson < ActiveRecord::Base
     reject_if: lambda {|attribute| attribute[:word_id].blank?}, allow_destroy: true
   before_create :random_words
   before_update :change_is_completed
+  after_create :create_activity_start_lesson
+  after_update :create_activity_finish_lesson
 
   def score
     word_answers = self.lesson_words.joins(:word_answer)
@@ -28,5 +30,13 @@ class Lesson < ActiveRecord::Base
 
   def change_is_completed
     self.update_attributes is_learned: true unless self.is_learned?
+  end
+
+  def create_activity_start_lesson
+    create_activity self.user_id, self.id, :start_lesson
+  end
+
+  def create_activity_finish_lesson
+    create_activity self.user_id, self.id, :finish_lesson
   end
 end

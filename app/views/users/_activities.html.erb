@@ -1,0 +1,11 @@
+<ul>
+  <% @activities.each do |activity| %>
+    <li>
+      <% if activity.followed? || activity.unfollowed? %>
+        <%= link_to activity.show, user_path(activity.target_id) %>
+      <% else %>
+        <%= link_to activity.show, lesson_path(activity.target_id) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :activity
+  has_many :activities
   has_many :lessons
   has_many :relationship
 

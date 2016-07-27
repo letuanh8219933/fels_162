@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.activities.order(created_at: :desc)
   end
 
   def new
