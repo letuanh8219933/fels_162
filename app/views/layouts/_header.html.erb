@@ -8,6 +8,9 @@
         <% if logged_in? %>
           <li><%= link_to t("view.header.user"), users_path %></li>
           <li><%= link_to t("view.header.categories"), categories_path %></li>
+          <li>
+            <%= link_to t("views.static_pages.word_list"), words_path %>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t "view.header.account" %> <b class="caret"></b>
