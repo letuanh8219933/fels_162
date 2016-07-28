@@ -126,3 +126,10 @@ en:
     add_answers: "Add_answers"
     word_answer: "Answer"
   delete: "Delete"
+  model:
+    activity:
+      show:
+        followed: "%{follower} are followed user %{followed} at %{created_at}"
+        unfollowed: "%{follower} are unfollowed user %{followed} at %{created_at}"
+        start_lesson: "%{name} are started lesson %{id} at %{created_at}"
+        finish_lesson: "%{name} are finished lesson %{id} at %{created_at}"

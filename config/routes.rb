@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     resources :categories do
       resources :words, only:[:new, :create]
     end
+  end
   resources :relationships, only: [:create, :destroy, :index]
-  resources :users
   resources :users do
     get "/:relationship", on: :member,
       to: "relationships#index", as: :relationships
