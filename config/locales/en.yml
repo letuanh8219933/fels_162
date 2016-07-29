@@ -25,6 +25,8 @@ en:
     followers: "Followers"
   message:
     success:
+      doing_lesson: "Doing"
+      finish_lesson: "Finished"
     error: "error"
     info: "Remember me on this computer"
     loggin_success: "login with administrator privileges"
@@ -133,3 +135,12 @@ en:
         unfollowed: "%{follower} are unfollowed user %{followed} at %{created_at}"
         start_lesson: "%{name} are started lesson %{id} at %{created_at}"
         finish_lesson: "%{name} are finished lesson %{id} at %{created_at}"
+
+  page:
+    front-end:
+      lesson:
+        do:
+          page_title: "Do Lesson"
+          question_num:  "Question "
+          question_detail: "What does "
+          question_mean: "mean ?"

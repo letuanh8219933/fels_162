@@ -1,47 +1,20 @@
 <% provide :title, @user.name %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section class="stats">
-      <%= render "shared/stats" %>
-    </section>
-  </aside>
-  <div class="clearfix"></div>
-   <div class="col-md-6">
-     <br/>
-     <table>
-       <thead>
-         <th><%= t ".lesson" %></th>
-         <th><%= t ".category" %></th>
-         <th><%= t ".status" %></th>
-         <th><%= t ".score" %></th>
-       </thead>
-       <tbody>
-         <% @user.lessons.each do |lesson| %>
-           <tr>
-             <td><%= link_to t("views.users.show.lesson",id: lesson.id),
-               lesson_path(lesson) %>
-               </td>
-             <td><%= lesson.category.name %></td>
-             <% if lesson.is_learned? %>
-               <td><%= t ".finished" %></td>
-               <td><%= lesson.score %></td>
-             <% else %>
-               <td><%= t ".doing" %></td>
-               <td>-</td>
-             <% end %>
-           </tr>
-         <% end %>
-       </tbody>
-     </table>
-   </div>
-   <div class="col-md-6">
+  <div class="user_infomation">
+    <aside class="col-md-4">
+      <section class="user_info" id="user_info">
+        <%= gravatar_for @user %></br>
+      </section>
+      <h3 class="user_name"><%= @user.name %></h3>
+      <section class="stats" id="stats">
+        <%= render "shared/stats" %>
+      </section>
+    <div class="col-md-8" id="follow_form">
+      <%= render "follow_form" %>
+    </div>
+    </aside>
+  </div>
+  <div class="col-md-8">
     <%= render "activities" %>
   </div>
-  <div><%= render "follow_form" %></div>
 </div>

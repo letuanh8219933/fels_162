@@ -1,8 +1,25 @@
-<% provide :title, t("view.user.index") %>
-<h1><%= t "view.user.index" %></h1>
-<ul class="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-  <% end %>
-</ul>
-<%= will_paginate %>
+<h1>List User</h1>
+<div class= "admin_user">
+<center>  <table class="users-table table table-hover table-bordered">
+    <thead>
+      <tr class="info">
+        <th class="text-center"> STT </th>
+        <th class="text-center"> Name </th>
+        <th class="text-center"> Email </th>
+        <th class="text-center"> Joined in</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, index| %>
+        <tr >
+          <td class="text-center"><%= index+1 %></td>
+          <td class="text-center"><%= link_to user.name, user %></td>
+          <td class="text-center"><%= user.email %></td>
+          <td class="text-center"><%= user.created_at.to_date.strftime("%d %B %Y") %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
+</center>
+</div>
