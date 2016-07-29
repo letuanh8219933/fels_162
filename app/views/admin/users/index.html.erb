@@ -1,11 +1,29 @@
-<% provide :title, t("admin.title_users") %>
+<h1><% t "admin.user.title_index" %></h1>
+<div class="admin_user">
 <center>
-  <h1><%= t "admin.title_users" %></h1>
-  <div>
-    <ul class="list-group">
-      <%= render partial: "user" , collection: @users  %>
-    </ul>
-    <%= will_paginate @users %>
-  </div>
+  <table class="users-table table table-hover table-bordered" id="user-table">
+    <thead>
+      <tr class="info">
+        <th class="text-center"> <% t "admin._user.stt" %> </th>
+        <th class="text-center"> <% t "admin._user.name" %> </th>
+        <th class="text-center"> <% t "admin._user.email" %> </th>
+        <th class="text-center"> <% t "admin._user.action" %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, index| %>
+      <% unless user.is_admin? %>
+        <tr>
+          <td class="text-center"><%= index %></td>
+          <td class="text-center"><%= user.name %></td>
+          <td class="text-center"><%= user.email %></td>
+          <td class="text-center"><%= link_to t("view.delete"), admin_user_path(user),
+            method: :delete,data: {confirm: t("admin.confirm")} %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
 </center>
-
+</div>

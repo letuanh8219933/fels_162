@@ -2,24 +2,29 @@
 <center>
   <h1><%= t "admin.title_categories" %></h1>
 </center>
-<%= link_to t("admin.add_category"), new_admin_category_path,
-  class: "btn btn-primary" %>
-<%= will_paginate %>
-<ul class="list-group">
-  <% @categories.each do |category| %>
-    <li class="list-group-item">
-    <table>
-      <tr>
-        <td> <%= link_to category.name, admin_category_path(category) %></td>
-        <td>
-            <%= link_to t("views.categories.delete"), admin_category_path(category),
-              method: :delete, data: {confirm: t("admin.confirm")} %> |
-            <%= link_to t("views.categories.edit"),
-              edit_admin_category_path(category) %>
-        </td>
+<center>
+<div class= "admin_category">
+  <table class="users-table table table-hover table-bordered">
+    <thead>
+      <tr class="info">
+        <th class="text-center"> <% t "admin.category.index.stt" %> </th>
+        <th class="text-center"> <% t "admin.category.index.category" %> </th>
+        <th class="text-center"> <% t "admin.category.index.action" %> </th>
       </tr>
-    </table>
-    </li>
-  <% end %>
-</ul>
-<%= will_paginate %>
+    </thead>
+    <tbody>
+      <% @categories.each_with_index do |category, index| %>
+        <tr>
+          <td class="text-center"><%= index + 1 %></td>
+          <td class="text-center"><%= link_to category.name, admin_category_path(category) %></td>
+          <td class="text-center">
+            <%= link_to t("views.categories.edit"), edit_admin_category_path(category) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to t("admin.add_category"), new_admin_category_path,
+    class: "btn btn-primary" %>
+  <%= will_paginate @categories %>
+</div>
+</center>

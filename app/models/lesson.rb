@@ -11,7 +11,7 @@ class Lesson < ActiveRecord::Base
   before_update :change_is_completed
 
   def score
-    word_answers = self.lesson_words.joins(:word_answer)
+    word_answers = self.word_answers
     correct = word_answers.select{|item| item.is_correct?}.size
     total = word_answers.size
     "#{correct} / #{total}"

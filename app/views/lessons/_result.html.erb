@@ -1,0 +1,26 @@
+<%= form_for @lesson do |f| %>
+  <%= f.hidden_field :is_learned, value: true %>
+  <%= f.fields_for :word_lessons do |build| %>
+    <div class="panel panel-default col-md-6">
+      <span class="label label-default label-lg">
+        <%= t "page.front-end.lessons.do.question_num"%>
+        <%= build.index + 1 %>
+      </span><br/><br/>
+      <label><%= build.object.word.native_word %></label>
+      <div>
+        <div class="answers">
+          <% build.object.word.word_answers.each do |answer| %>
+            <%= build.radio_button :word_answer_id, answer.id,
+              disabled: @lesson.is_completed %>
+            <span class=" each_answer <%= answer.is_correct ? "text-success":
+              "text-danger" %>" >
+              <%= answer.content %>
+            </span>
+            <%= build.hidden_field :word_id %>
+            <br/>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -133,3 +133,17 @@ en:
         unfollowed: "%{follower} are unfollowed user %{followed} at %{created_at}"
         start_lesson: "%{name} are started lesson %{id} at %{created_at}"
         finish_lesson: "%{name} are finished lesson %{id} at %{created_at}"
+admin:
+  category:
+    index:
+      stt: "STT"
+      category: "Category"
+      action: "Action"
+  _user:
+    stt: "STT"
+    name: "Name"
+    email: "Email"
+    action: "Action"
+  user:
+    title_index: "Manager User"
+

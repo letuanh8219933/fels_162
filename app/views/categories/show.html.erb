@@ -1,0 +1,16 @@
+<%= content_for :title do %>
+  <%= t "page.front-end.categories.detail.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.categories.detail.title" %>
+<% end %>
+  <h3><%= "Detail Category" %></h3>
+  <% @lessons.each do |lesson| %>
+    <%= link_to lesson.id, [@category,lesson],
+      class: "btn btn-#{lesson.is_learned ? "success" : "danger"}  lesson_learned" %>
+  <% end %>
+<br/><hr/>
+<%= form_for [@category, @lesson] do |f| %>
+  <%= f.submit "Start lesson", class: "btn btn-primary col-md-4" %>
+<% end %>

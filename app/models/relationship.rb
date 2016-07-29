@@ -8,7 +8,7 @@ class Relationship < ActiveRecord::Base
   validates :followed, presence: true
 
   after_create :create_activity_follow
-  after_create :create_activity_unfollow
+  after_destroy :create_activity_unfollow
 
   private
   def create_activity_follow

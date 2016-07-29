@@ -1,7 +1,8 @@
 class Admin::WordsController < ApplicationController
+  layout "admin"
   before_action :verify_admin
-  before_action :load_word, except: [:index]
-  before_action :load_category
+  before_action :load_word, except: :index
+  before_action :load_category, except: :destroy
 
   def index
     @categories = Category.order :name
@@ -18,12 +19,21 @@ class Admin::WordsController < ApplicationController
     @word = @category.words.new word_params
     @word.category = @category
     if @word.save
-      flash[:success] = t "admin.success"
+      flash[:success] = t "admin.create_category"
       redirect_to admin_category_url @category
     else
       flash[:danger] = t "admin.Failed"
       render :new
     end
+  end
+
+  def destroy
+      if @word.destroy
+        flash[:success] = t "admin.deleted"
+      else
+        flash[:danger] = t "admin.deleted_fail"
+      end
+    redirect_to admin_words_path
   end
 
   private

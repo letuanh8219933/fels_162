@@ -4,3 +4,27 @@
     data: {confirm: t("admin.confirm")} %>
   <br>
 <% end %>
+<% unless user.is_admin? %>
+  <div class= "admin_user">
+    <table class="users table table-hover table-bordered">
+      <thead>
+        <tr class="info">
+          <th> <% t "admin._user.stt" %> </th>
+          <th> <% t "admin._user.name" %> </th>
+          <th> <% t "admin._user.email" %> </th>
+          <th> <% t "admin._user.action" %> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each_with_index do |user, index| %>
+          <tr >
+            <td class="text-center"><%= index + 1 %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to t("view.delete"), admin_user_path(user), method: :delete,
+                  data: {confirm: t("admin.confirm")} %></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+<% end %>
