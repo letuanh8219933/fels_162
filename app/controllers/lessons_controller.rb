@@ -1,18 +1,19 @@
 class LessonsController < ApplicationController
   before_action :logged_in_user, only: [:create, :update]
+  before_action :load_category, only: [:show, :create]
   before_action :load_lesson, only: [:show, :update]
 
   def show
     @words = @lesson.category.words
     if @lesson.is_learned?
-      flash[:success] = t ".success.finish"
+      flash[:success] = t "message.success.finish_lesson"
     else
-      flash[:success] = t ".success.doing_lesson"
+      flash[:success] = t "message.success.doing_lesson"
     end
   end
 
   def create
-    @lesson = current_user.lessons.build lesson_params
+    @lesson = current_user.lessons.build category_id: @category.id
     if @lesson.category.words.any?
       if @lesson.save
         flash[:success] = t "Success"
@@ -37,6 +38,10 @@ class LessonsController < ApplicationController
   end
 
   private
+  def load_category
+    @category = Category.find_by id: params[:category_id]
+  end
+
   def load_lesson
     @lesson = Lesson.find_by id: params[:id]
     redirect_to categories_url if @lesson.nil?

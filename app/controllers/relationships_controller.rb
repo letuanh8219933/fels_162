@@ -3,18 +3,14 @@ class RelationshipsController < ApplicationController
 
   def index
     @user = User.find_by id: params[:user]
-    if @user.nil?
-      flash[:danger] = t "controller.user_controller.error_norecord"
-    else
       relationship = params[:relationship]
-      @title = t "relationship.#{relationship}"
+      @title = t "follow_user.#{relationship}"
       @users = @user.send(relationship).paginate page: params[:page]
       render "users/show_follow"
-    end
   end
 
   def create
-    @user = User.find_by params[:followed_id]
+    @user = User.find_by id: params[:followed_id]
     if @user.nil?
       flash[:danger] = t "controller.user_controller.error_norecord"
     else
@@ -28,15 +24,11 @@ class RelationshipsController < ApplicationController
 
   def destroy
     @user = Relationship.find_by(id: params[:id]).followed
-    if @user.nil?
-      flash[:danger] = t "controller.user_controller.error_norecord"
-    else
       current_user.unfollow @user
       respond_to do |format|
         format.html {redirect_to @user}
         format.js
       end
     end
-  end
 end
 

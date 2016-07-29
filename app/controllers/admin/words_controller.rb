@@ -1,6 +1,6 @@
 class Admin::WordsController < ApplicationController
   before_action :verify_admin
-  before_action :load_word, except: [:index]
+  before_action :load_word, except: :index
   before_action :load_category
 
   def index

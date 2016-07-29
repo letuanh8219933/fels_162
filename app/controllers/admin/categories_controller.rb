@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
+  layout "admin"
   before_action :load_category, except: [:new, :create]
   before_action :verify_admin
-
   def index
     @categories = Category.order(:name).paginate page: params[:page],
       per_page: Settings.per_page
